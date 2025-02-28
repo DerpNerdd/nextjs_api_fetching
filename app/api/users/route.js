@@ -8,7 +8,6 @@ export async function GET() {
     }
 
     const users = await response.json();
-    // Return data as JSON
     return NextResponse.json(users);
   } catch (error) {
     return NextResponse.json(

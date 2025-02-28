@@ -1,4 +1,4 @@
-"use client"; // Mark this as a Client Component
+"use client"; 
 
 import React, { useEffect, useState } from "react";
 
@@ -8,7 +8,6 @@ export default function Page() {
   const [error, setError] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  // Client-side fetch to our custom API route
   useEffect(() => {
     fetch("/api/users")
       .then((res) => res.json())
@@ -26,17 +25,14 @@ export default function Page() {
     return <div className="text-center text-red-500 mt-4">Error: {error}</div>;
   }
 
-  // Filter users by name (case-insensitive) using the search query
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(query.toLowerCase())
   );
 
-  // When a user is clicked, open a modal with more details
   const handleUserClick = (user) => {
     setSelectedUser(user);
   };
 
-  // Close the modal
   const closeModal = () => {
     setSelectedUser(null);
   };
